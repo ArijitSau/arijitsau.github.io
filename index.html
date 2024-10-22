@@ -1,21 +1,150 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    	<title>Arijit's HomePage</title>
-	<link rel = "icon" href = "21989290_i.png" type = "image/x-icon">
-  </head>
-  <body>
-	<h1><b><marquee direction = "left" scrollamount = "8" hspace = "25%" behavior = "alternate" >Welcome to Home Page 🙂</marquee></b></h1>
-	  
-	<style>
-		body {
-		background-image: url('forest_background.png');
-		background-repeat: no-repeat;
-		background-attachment: fixed;
-		background-size: cover;
-		}
-	</style>
+<head>
+  <title>Arijit Sau</title>
+  <link rel="icon" href="user.png" type="image/x-icon">
+  <style>
+    /* Splash screen styles */
+    #splash-screen {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: black;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999; /* Ensures it appears on top */
+      font-size: 2em;
+      transition: opacity 1s ease-out; /* Smooth fade-out transition */
+    }
 
+    /* Hide the splash screen after fade-out */
+    #splash-screen.hidden {
+      opacity: 0;
+      pointer-events: none; /* Prevent interaction when hidden */
+    }
 
-  </body>
+    /* Main content styles */
+    html, body {
+      height: 100%; /* Ensure both html and body elements cover the full height of the viewport */
+      margin: 0;
+      padding: 0;
+    }
+
+    #main-content {
+      display: none; /* Initially hidden */
+      background-image: url('forest_background.png');
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-size: cover; /* Ensure the image covers the screen while maintaining its aspect ratio */
+      background-position: center center; /* Center the image */
+      font-family: Arial, sans-serif;
+      color: #fff;
+      opacity: 0; /* Initially transparent */
+      min-height: 100vh; /* Ensure the main content takes up at least 100% of the viewport height */
+      transition: opacity 1s ease-in; /* Smooth fade-in for the content */
+      display: flex; /* Use flexbox to align items */
+      flex-direction: column; /* Stack items vertically */
+      align-items: center; /* Center items horizontally */
+      justify-content: center; /* Center items vertically */
+    }
+
+    #main-content.loaded {
+      display: flex;
+      opacity: 1; /* Show the content with smooth fade-in */
+    }
+
+    h1 {
+      text-align: center;
+      margin-top: 0px;
+    }
+
+    .section {
+      width: 80%; /* Set a fixed width for the sections */
+      max-width: 1000px; /* Optional: Limit the maximum width */
+      margin: 20px auto; /* Center the section with auto margins */
+      padding: 20px;
+      background-color: rgba(0, 0, 0, 0.5);
+      border-radius: 20px;
+      text-align: left;
+    }
+
+    a {
+      color: #00f;
+      text-decoration: none;
+    }
+
+    a:hover {
+      color: #fff;
+    }
+
+    /* Popup box styles */
+    #popup {
+      position: fixed; /* Fixed position */
+      bottom: 20px; /* Distance from the bottom */
+      right: 20px; /* Distance from the right */
+      background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent background */
+      color: white; /* Text color */
+      padding: 10px; /* Padding inside the box */
+      border-radius: 10px; /* Rounded corners */
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect */
+      display: none; /* Initially hidden */
+      z-index: 1000; /* Above other elements */
+    }
+  </style>
+</head>
+<body>
+  <div id="splash-screen">Hello there, welcome!</div> <!-- Splash screen element -->
+  
+  <div id="main-content">
+    <h1></h1>
+
+    <div class="section">
+		<h2>About Me</h2>
+		<p>My name is Arijit Sau, and I was born and raised in the rural area of Kharagpur, West Bengal, India.
+		I have completed my undergraduate studies in Civil Engineering at IIT Bhubaneswar, graduating in 2024.</p>
+		<p>Currently, I am working as a Junior Research Fellow at IIT Roorkee,
+		where I focus on multi-scale topology optimization and additive manufacturing.
+		I aspire to build a career in teaching and research within the field of computational mechanics.</p>
+    </div>
+
+    <div class="section">
+      <h2>Projects</h2>
+      <p><a href="projects.html">Click here to view my projects</a></p>
+    </div>
+
+    <div class="section">
+      <h2>Contact</h2>
+      <p>Email: 20ce01041@iitbbs.ac.in / arijit.ce@sric.iitr.ac.in</p>
+    </div>
+  </div>
+
+  <!-- Popup box -->
+  <div id="popup">
+  ⚠️Periodically updating it!
+  This is one of my hobby projects.
+  Hope you find it useful.</div>
+
+  <script>
+    // Wait for the page to load, then show the content after 1 second
+    window.onload = function() {
+      setTimeout(function() {
+        document.getElementById('splash-screen').classList.add('hidden'); // Fade out the splash screen
+        document.getElementById('main-content').classList.add('loaded'); // Show and fade in the main content
+
+        // Show the popup after main content is displayed
+        const popup = document.getElementById('popup');
+		setTimeout(function() {
+			popup.style.display = 'block'; // Make the popup visible
+		}, 2000)
+        setTimeout(function() {
+          popup.style.display = 'none'; // Hide the popup after 10 seconds
+        }, 10000); // Adjust the duration as needed
+      }, 2000); // 2 second delay for splash screen
+    };
+  </script>
+</body>
 </html>

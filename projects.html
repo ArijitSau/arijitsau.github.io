@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Section</title>
+    <link rel="icon" href="project_new.png" type="image/x-icon">
+    <style>
+        body {
+            background-color: wheat;
+            font-family: Arial, sans-serif;
+        }
+        h1 {
+            text-align: center;
+            margin-top: 50px;
+        }
+        .project {
+            background-color: ivory;
+            max-width: 1000px;
+            border-radius: 10px;
+            margin: 20px auto;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .project img {
+            max-width: 80%; /* Image width responsive */
+            height: auto;
+            border-radius: 10px;
+            opacity: 0; /* Start hidden */
+            transition: opacity 0.5s ease; /* Smooth transition for opacity */
+            visibility: hidden; /* Hidden by default */
+            display: none; /* Hide the image element */
+        }
+        .project img.visible {
+            opacity: 1; /* Make visible */
+            visibility: visible; /* Ensure it's visible */
+            display: block; /* Show the image element */
+        }
+        .project h2 {
+            margin-top: 0;
+            cursor: pointer; /* Indicate the heading is clickable */
+        }
+        .project p {
+            font-size: 16px;
+            color: #333;
+        }
+        .image-container {
+            text-align: center; /* Center the image container */
+            display: flex; /* Use flexbox for better centering */
+            justify-content: center; /* Center the content */
+            align-items: center; /* Center vertically */
+        }
+    </style>
+</head>
+  <body>
+    <h1 style="margin: 0; padding: 10px 0;">My Projects</h1>
+	
+	<!-- Project 6 -->
+    <div class="project">
+      <h2 onclick="toggleImages(this)">Multiscale Topology Optimization driven Additive Manufacturing of Hierarchical Structures with Tunable Microstructures</h2>
+	  <p>Developed a parallelized topology optimization framework in Python using the open-source FEniCSx package,
+	  implementing multiphase, multiscale structural optimization based on continuum micromechanics principles.</p>
+	  <div class="image-container">
+		<img src="Projects images\topopt_iitr.png" alt="Results"></div>
+    </div>
+	
+	<!-- Project 5 -->
+    <div class="project">
+      <h2 onclick="toggleImages(this)">Design and Optimization of Deployable cable-bar structures using Stiffness Matrix Method</h2>
+	  <p>Developed algorithms and frameworks in MATLAB for spatial visualization, structural analysis, and size optimization using a modified TLBO algorithm,
+	  designed 2D as well as 3D foldable structures with high packing efficiency and compliance with the deployability criteria.</p>
+      <div class="image-container">
+		<img src="Projects images\Deployable_BTP.png" alt="Foldable Structure-2"></div>
+    </div>
+	
+	<!-- Project 4 -->
+    <div class="project">
+      <h2 onclick="toggleImages(this)">Image to Simulation Software Workflow for Patient-Specific Fully Autonomous Diagnostic Analysis</h2>
+	  <p>Implemented vertebrae segmentation using a two-stage variational approach and fracture mechanics principles,
+	  developed a Python algorithm to combine segmented vertebrae into a complete representation of vertebral column.</p>
+	  <div class="image-container">
+		<img src="Projects images\srip_im2sim.png" alt="Results"></div>
+    </div>
+	
+	<!-- Project 3 -->
+    <div class="project">
+      <h2 onclick="toggleImages(this)">Accurate Structural Residual Useful Life Prediction using Phase Field and Deep Learning based Approach</h2>
+	  <p>Generated various crack images with different geometries and propagation patterns using Phase-field model,
+	  developed a deep CNN model in Julia to predict the impact of new crack types on structural lifespan,
+	  and categorized these cracks by their severity.</p>
+	  <div class="image-container">
+		<img src="Projects images\rul.png" alt="Results"></div>
+    </div>
+	
+    <!-- Project 2 -->
+    <div class="project">
+      <h2 onclick="toggleImages(this)">Monochrome Hand-Written Digit Recognition Using CNN</h2>
+	  <p>Developed a deep CNN model that achieved an impressive 99.3% accuracy in predicting handwritten digits,
+	  leveraging techniques such as learning rate decay, callbacks, and data augmentation methods like random cropping and tilting.</p>
+	  <div class="image-container">
+		<img src="Projects images\digit_recognizer.png" alt="Results"></div>
+    </div>
+
+    <!-- Project 1 -->
+    <div class="project">
+      <h2 onclick="toggleImages(this)">Comprehensive Analysis and Optimization of Renewable Energy Production in India</h2>
+	  <p>Analyzed the current state of renewable energy production in India, identified key shortcomings,
+	  and proposed actionable steps and design considerations to enhance efficiency, particularly in solar and wind energy.</p>
+	  <div class="image-container">
+		<img src="Projects images\renewable.png" alt="Results"></div>
+    </div>
+	
+	<script>
+        function toggleImages(heading) {
+            const images = heading.parentElement.querySelectorAll('img'); // Find all images in the project section
+            images.forEach(img => {
+                if (img.classList.contains('visible')) {
+                    img.classList.remove('visible'); // Hide the image if it's already visible
+                    setTimeout(() => {
+                        img.style.display = 'none'; // Set display to none after transition ends
+                    }, 50); // Match this timeout with the CSS transition duration
+                } else {
+                    img.style.display = 'block'; // Show the image element
+                    setTimeout(() => {
+                        img.classList.add('visible'); // Add visible class to trigger the transition
+                    }, 10); // Slight delay to allow display to take effect
+                }
+            });
+        }
+    </script>
+  </body>
+</html>
+
+  </body>
+</html>
